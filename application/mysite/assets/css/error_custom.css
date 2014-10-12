@@ -1,0 +1,26 @@
+html , body{
+    font-family: 'Open Sans', Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+html{
+    height: 100%;
+}
+body {
+    padding-top: 30px;
+    background: -webkit-linear-gradient(-45deg, rgba(56,56,56,1) 0, rgba(56,56,56,1) 1%, rgba(84,84,84,1) 77%, rgba(119,118,118,1) 92%, rgba(147,146,146,1) 100%);
+    background: -moz-linear-gradient(135deg, rgba(56,56,56,1) 0, rgba(56,56,56,1) 1%, rgba(84,84,84,1) 77%, rgba(119,118,118,1) 92%, rgba(147,146,146,1) 100%);
+    background: linear-gradient(135deg, rgba(56,56,56,1) 0, rgba(56,56,56,1) 1%, rgba(84,84,84,1) 77%, rgba(119,118,118,1) 92%, rgba(147,146,146,1) 100%);
+}
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 50px;
+    background-color: transparent;
+} 
+#footer p.navbar-text{
+    font-size: 12px;
+}
+#footer a{
+    color: #ddd;
+}

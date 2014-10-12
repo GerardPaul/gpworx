@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+    $current_controller = $this->router->fetch_class();
+    $active[$current_controller] = 'active';
+?>
+<!DOCTYPE html> 
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -8,29 +12,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Favicon -->
         <link rel="shortcut icon" href="<?php echo base_url("application/mysite/assets/img/favicon.ico"); ?>" type="image/x-icon"/>
-        
+
         <!-- Application CSS -->
         <link rel="stylesheet" href="<?php echo base_url("application/mysite/assets/css/bootstrapValidator.min.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("application/mysite/assets/css/jquery.dataTables.min.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("application/mysite/assets/css/datepicker.css"); ?>">
-        
+
         <!-- Main CSS -->
         <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap-theme.min.css"); ?>">
-        
+
         <!-- My CSS -->
         <link rel="stylesheet" href="<?php echo base_url("application/mysite/assets/css/carousel.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("application/mysite/assets/css/cover.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("application/mysite/assets/css/custom.css"); ?>">
-        
+
         <!-- Fonts -->
         <link href="<?php echo base_url("assets/css/font-awesome.min.css"); ?>" rel="stylesheet">
         <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
-        
+
         <!-- Bootstrap and JQuery -->
         <script type="text/javascript" src="<?php echo base_url("assets/js/jquery-2.1.1.min.js"); ?>"></script>
-	<script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
-        
+        <script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
+
     </head>
     <body>
         <!-- header -->
@@ -50,11 +54,11 @@
                             </a>
                         </div>
                         <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav pull-right nav-gradient">
-                                <li class="active"><a href="#">Home</a></li>
-                                <li><a href="#">Projects</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Contact</a></li>
+                            <ul class="nav navbar-nav pull-right">
+                                <li class="<?php if (isset($active['home'])){ echo $active['home']; } ?>"><a href="#">Home</a></li>
+                                <li class="<?php if (isset($active['portfolio'])){ echo $active['portfolio']; } ?>"><a href="#">Portfolio</a></li>
+                                <li class="<?php if (isset($active['about'])){ echo $active['about']; } ?>"><a href="#">About</a></li>
+                                <li class="<?php if (isset($active['contact'])){ echo $active['contact']; } ?>"><a href="#">Contact</a></li>
                             </ul>
                         </div>
 

@@ -1,13 +1,13 @@
 <!-- Full Screen Background -->
 <div id="bg">
-    <?php for($i = 1; $i<=2; $i++){ ?>
+    <?php for($i = 1; $i<=3; $i++){ ?>
     <div>
         <img src="<?php echo base_url(); ?>application/mysite/assets/img/gpworx_<?php echo $i; ?>.jpg" alt="" class="bg-img img-responsive">
     </div>
     <?php }?>
 </div>
 <!--<div class="blur"></div>-->
-<div class="container">
+<!--<div class="container">
     <div class="row">
         <div class="col-xs-12">
             <div class="center-container">
@@ -24,4 +24,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->

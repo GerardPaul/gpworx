@@ -62,16 +62,6 @@ a:active{
 .brand_logo{
     width: 60px;
 }
-.logo{
-    background: url(../img/gerardpaullabitad-gpworx-logo_white.png) center center no-repeat;
-    background-size: 60px 60px;
-    width: 60px;
-}
-.logo:hover{
-    background: url(../img/gerardpaullabitad-gpworx-logo_circle.png) center center no-repeat;
-    background-size: 60px 60px;
-    width: 60px;
-}
 #bg, #gpworx{
     position: fixed;
     top: -50%;
@@ -155,25 +145,4 @@ a:active{
         width: 30%;
         height: 30%;
     }
-}
-.nav-gradient1{
-    background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
-    background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 12+ */
-    background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
-    background: radial-gradient(ellipse at center,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-}
-.nav-gradient{
-  background: -webkit-radial-gradient(farthest-side, rgba(0,0,0,0.1) 0, rgba(255,255,255,0) 100%);
-  background: -moz-radial-gradient(farthest-side, rgba(0,0,0,0.1) 0, rgba(255,255,255,0) 100%);
-  background: radial-gradient(farthest-side, rgba(0,0,0,0.1) 0, rgba(255,255,255,0) 100%);
-  background-position: 50% 50%;
-  -webkit-background-origin: padding-box;
-  background-origin: padding-box;
-  -webkit-background-clip: border-box;
-  background-clip: border-box;
-  -webkit-background-size: auto auto;
-  background-size: auto auto;
 }
