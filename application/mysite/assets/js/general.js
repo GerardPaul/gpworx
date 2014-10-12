@@ -8,7 +8,7 @@ $(function() {
     );
 
     $("#bg > div:gt(0)").hide();
-    $('#logo').click(function(e) {
+    $('.logo').click(function(e) {
         e.preventDefault();
         $('#bg > div:first')
                 .fadeOut(1000)

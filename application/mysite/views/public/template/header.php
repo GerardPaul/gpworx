@@ -49,7 +49,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a href="#" title="GP Worx" id="logo">
+                            <a href="#" title="GP Worx" id="logo" class="logo">
                                 <img class="img-responsive brand_logo" src="<?php echo base_url(); ?>application/mysite/assets/img/gerardpaullabitad-gpworx-logo_white.png" alt="GP Worx" title="GP Worx">
                             </a>
                         </div>
