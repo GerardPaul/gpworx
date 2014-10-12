@@ -118,6 +118,9 @@ body {
         display: inline-block;
         margin-left: 10px;
     }
+    .nav-sidebar > li > a > i{
+        font-size: inherit;
+    }
 }
 
 /*

@@ -54,7 +54,7 @@ $active[$current_controller] = 'active';
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="<?php echo base_url(); ?>gerard/home/logout"><i class="fa fa-eject"></i>&nbsp;Logout</a></li>
+                        <li><a href="<?php echo base_url(); ?>" target="_blank"><i class="fa fa-external-link"></i>&nbsp;Preview</a></li>
                     </ul>
                 </div>
             </div>
@@ -63,10 +63,12 @@ $active[$current_controller] = 'active';
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li class="active"><a href=""><i class="fa fa-dashboard"></i><span>Manage Admin</span></a></li>
-                        <li><a href=""><i class="fa fa-image"></i><span>Manage Backgrounds</span></a></li>
-                        <li><a href=""><i class="fa fa-file-text"></i><span>Manage Portfolio</span></a></li>
-                        <li><a href=""><i class="fa fa-user"></i><span>Manage About</span></a></li>
+                        <li class="<?php if (isset($active['home'])){ echo $active['home']; } ?>"><a href="<?php echo base_url(); ?>gerard/home"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
+                        <li class="<?php if (isset($active['admin'])){ echo $active['admin']; } ?>"><a href="<?php echo base_url(); ?>gerard/admin"><i class="fa fa-user-md"></i><span>Manage Admin</span></a></li>
+                        <li class="<?php if (isset($active['background'])){ echo $active['background']; } ?>"><a href="<?php echo base_url(); ?>gerard/background"><i class="fa fa-image"></i><span>Manage Backgrounds</span></a></li>
+                        <li class="<?php if (isset($active['portfolio'])){ echo $active['portfolio']; } ?>"><a href="<?php echo base_url(); ?>gerard/portfolio"><i class="fa fa-file-text"></i><span>Manage Portfolio</span></a></li>
+                        <li class="<?php if (isset($active['about'])){ echo $active['about']; } ?>"><a href="<?php echo base_url(); ?>gerard/about"><i class="fa fa-book"></i><span>Manage About</span></a></li>
+                        <li><a href="<?php echo base_url(); ?>gerard/home/logout"><i class="fa fa-sign-out"></i><span>Logout</span></a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

@@ -2,9 +2,8 @@
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
-session_start(); //we need to call PHP's session object to access it through CI
 
-class Home extends CI_Controller {
+class Admin extends CI_Controller {
 
     var $login = FALSE;
     var $userId = '';
@@ -29,20 +28,14 @@ class Home extends CI_Controller {
         $this->checkLogin();
         if ($this->login) {
             $data = array(
-                "title" => 'Home',
+                "title" => 'Manage Admin',
                 "description" => 'This site is a project of Gerard Paul Picardal Labitad.',
                 "fullname" => $this->fullname
             );
-            $this->load->gerard('index', $data);
-        }else{
+            $this->load->gerard('admin', $data);
+        } else {
             redirect('login', 'refresh');
         }
-    }
-    
-    public function logout() {
-        $this->session->unset_userdata('logged_in');
-        session_destroy();
-        redirect('login', 'refresh');
     }
 
 }

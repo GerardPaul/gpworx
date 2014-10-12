@@ -27,13 +27,15 @@ class Login extends CI_Controller {
             $adminId = $result->getId();
             $adminUsername = $result->getUsername();
             $adminPassword = $result->getPassword();
+            $adminFullname = $result->getFullname();
             $adminSalt = $result->getSalt();
 
             $hashPassword = hash('sha256', $adminSalt . $password);
 
             if ($username == $adminUsername && $hashPassword == $adminPassword) {
                 $sess_array = array(
-                    'id' => $adminId
+                    'id' => $adminId,
+                    'fullname' => $adminFullname
                 );
                 $this->session->set_userdata('logged_in', $sess_array);
                 redirect('gerard/home', 'refresh');
