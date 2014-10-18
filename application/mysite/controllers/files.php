@@ -38,7 +38,7 @@ class Files extends CI_Controller {
         if($files != FALSE){
             $list = '';
             foreach ($files as $file) {
-                $list .= '<label><input type="radio" class="profile_image" name="profile_image" value="'.$file->getFile().'" /><img class="img img-responsive prof_img" width="130px" src="'.$file->getFile().'"></label>';
+                $list .= '<label><input type="radio" class="profile_image" name="profile_image" value="'.$file->getId().'+'.$file->getFile().'" /><img class="img img-responsive prof_img" width="130px" src="'.$file->getFile().'"></label>';
             }
             $result = array('status' => 'ok', 'content' => $list);
             
