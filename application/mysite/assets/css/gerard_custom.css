@@ -1,6 +1,15 @@
 html , body{
     font-family: 'Open Sans', Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
+html,
+body {
+    height: 100%;
+    background-color: #333;
+}
+body {
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
 a,
 a:hover,
 a:focus,
@@ -66,6 +75,7 @@ body {
     padding-right: 20px;
     padding-left: 20px;
     text-align: left;
+    color: #fff;
 }
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
@@ -127,7 +137,7 @@ body {
 * Main content
 */
 .main {
-    padding: 20px;
+    padding: 20px 20px 20px 70px;
 }
 @media (min-width: 768px) {
     .main {
@@ -138,12 +148,24 @@ body {
 .main .page-header {
     margin-top: 0;
 }
+.page-header{
+    border-bottom: 1px solid rgba(225,225,225,.2);
+}
 /*
 * Placeholder dashboard ideas
 */
 .placeholders {
     margin-bottom: 30px;
-    text-align: center;
+    padding: 10px;
+    background: #eee;
+    color: #000;
+    text-shadow: none;
+}
+.placeholders p{
+    margin: 10px 5px;
+}
+.placeholders hr{
+    border-bottom: 1px solid rgba(0,0,0,.2);
 }
 .placeholders h4 {
     margin-bottom: 0;
@@ -173,4 +195,51 @@ body {
 .navbar ul li a:active, 
 .navbar ul li a:hover{ 
     font-weight: bold;
+}
+.profile_upload{
+    text-align: center;
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.profile_upload i{
+    color: #999;
+}
+.profile_upload img{
+    margin: auto auto;
+}
+.profile_upload:hover i{
+    color: #333;
+}
+.image_container, .upload_container{
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    margin-bottom: 10px;
+}
+.image_container img{
+    display: inline-block;
+    margin: 5px;
+}
+.modal{
+    color: #000;
+    text-shadow: none;
+}
+.upload_container{
+    display: none;
 }

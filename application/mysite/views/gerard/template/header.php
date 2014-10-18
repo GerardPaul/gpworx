@@ -23,8 +23,8 @@ $active[$current_controller] = 'active';
         <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap-theme.min.css"); ?>">
 
         <!-- My CSS -->
-        <link rel="stylesheet" href="<?php echo base_url("application/mysite/assets/css/carousel.css"); ?>">
-        <link rel="stylesheet" href="<?php echo base_url("application/mysite/assets/css/cover.css"); ?>">
+<!--        <link rel="stylesheet" href="<?php echo base_url("application/mysite/assets/css/carousel.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("application/mysite/assets/css/cover.css"); ?>">-->
         <link rel="stylesheet" href="<?php echo base_url("application/mysite/assets/css/gerard_custom.css"); ?>">
 
         <!-- Fonts -->
@@ -33,6 +33,7 @@ $active[$current_controller] = 'active';
 
         <!-- Bootstrap and JQuery -->
         <script type="text/javascript" src="<?php echo base_url("assets/js/jquery-2.1.1.min.js"); ?>"></script>
+        <!--<script type="text/javascript" src="<?php echo base_url("assets/js/jquery-ui.min.js"); ?>"></script>-->
         <script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
 
     </head>

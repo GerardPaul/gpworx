@@ -1,5 +1,6 @@
-<div class="row">
+<h1 class="page-header">Manage Backgrounds</h1>
+<div class="row placeholders">
     <div class="col-xs-12">
-        <h1>Backgound <?php echo $fullname; ?></h1>
+        
     </div>
 </div>

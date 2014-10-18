@@ -68,7 +68,23 @@ class Admin_Model extends CI_Model {
         return false;
     }
     
-    public function createObjectFromData($row) {
+    function update_admin($id, $fullname, $username, $password, $salt, $profile1, $profile2){
+        $data = array(
+            'fullname' => $fullname,
+            'username' => $username,
+            'password' => $password,
+            'salt' => $salt,
+            'profile_picture1' => $profile1,
+            'profile_picture2' => $profile2
+        );
+        
+        if($this->db->update($this->_table_name,$data, array("id" => $id))){
+            return true;
+        }
+        return false;
+    }
+    
+    private function createObjectFromData($row) {
         $this->_id = $row->id;
         $this->_fullname = $row->fullname;
         $this->_username = $row->username;

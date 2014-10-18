@@ -1,4 +1,6 @@
 $(function() {
+    $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+    
     $('#logo').hover(
         function() {
             $('#logo img').attr('src', base_url + 'application/mysite/assets/img/gerardpaullabitad-gpworx-logo_circle.png');
@@ -6,7 +8,8 @@ $(function() {
             $('#logo img').attr('src', base_url + 'application/mysite/assets/img/gerardpaullabitad-gpworx-logo_white.png');
         }
     );
-
+    
+    //---- Slideshow ------
     $("#bg > div:gt(0)").hide();
     $('.logo').click(function(e) {
         e.preventDefault();
@@ -17,8 +20,6 @@ $(function() {
                 .end()
                 .appendTo('#bg');
     });
-
-    //---- Slideshow ------
 //        $("#bg > div:gt(0)").hide();
 //        setInterval(function() {
 //            $('#bg > div:first')
