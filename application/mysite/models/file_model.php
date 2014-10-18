@@ -27,7 +27,7 @@ class File_Model extends CI_Model {
     }
 
     function get_files() {
-        $sql = "SELECT * FROM $this->_table_name";
+        $sql = "SELECT * FROM $this->_table_name ORDER BY id DESC";
         $query = $this->db->query($sql);
         if ($query->num_rows() > 0) {
             $files = array();

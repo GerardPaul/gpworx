@@ -67,7 +67,7 @@
             </div>
             <div class="modal-body">
                 <div class="image_container">
-                    <input type="hidden" name="profile_image_upload" id="profile_image_upload" value="">
+                    
                 </div>
                 <div class="upload_container">
                     <form id="profile_form" method="post" class="form-horizontal" enctype="multipart/form-data" action="<?php echo base_url(); ?>gerard/admin/upload">
@@ -88,7 +88,8 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-success" id="upload_new">Upload New</button>
-                <button type="button" class="btn btn-primary">Confirm Add</button>
+                <button type="button" class="btn btn-primary" id="select_profile">Select</button>
+                <input type="hidden" id="for_profile" value="">
             </div>
         </div>
     </div>

@@ -215,6 +215,7 @@ body {
 }
 .profile_upload img{
     margin: auto auto;
+    height: 170px;
 }
 .profile_upload:hover i{
     color: #333;
@@ -232,9 +233,9 @@ body {
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     margin-bottom: 10px;
 }
-.image_container img{
-    display: inline-block;
-    margin: 5px;
+.image_container{
+    max-height: 250px;
+    overflow-y: auto;
 }
 .modal{
     color: #000;
@@ -242,4 +243,17 @@ body {
 }
 .upload_container{
     display: none;
+}
+.image_container label > input{
+    visibility: hidden;
+    position: absolute;
+}
+.image_container label > input + img{
+    cursor:pointer;
+    border:2px solid transparent;
+    display: inline-block;
+    margin: 5px;
+}
+.image_container label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:2px solid #f00;
 }
