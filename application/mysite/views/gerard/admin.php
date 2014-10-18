@@ -10,48 +10,40 @@
             Change fullname, username, password and profile pictures.
         </p>
         <hr>
-        <form id="adminForm" class="form-horizontal" method="post" action="<?php echo base_url(); ?>gerard/admin/update" role="form">
+        <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>gerard/admin/update" role="form">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="fullname">Full Name</label>
                 <div class="col-sm-8">
-                    <input class="form-control" type="text" id="fullname" name="fullname" placeholder="Full Name" value="<?php echo $admin->getFullname(); ?>">
+                    <input class="form-control" type="text" id="fullname" name="fullname" placeholder="Full Name" value="">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="username">Username</label>
                 <div class="col-sm-8">
-                    <input class="form-control" type="text" id="username" name="username" placeholder="Username" value="<?php echo $admin->getUsername(); ?>">
+                    <input class="form-control" type="text" id="username" name="username" placeholder="Username" value="">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="password">Password</label>
                 <div class="col-sm-4">
-                    <input class="form-control" type="password" id="password" name="password" placeholder="Password" value="password!">
+                    <input class="form-control" type="password" id="password" name="password" placeholder="Password" value="">
                 </div>
                 <div class="col-sm-4">
-                    <input class="form-control" type="password" id="cpassword" name="cpassword" placeholder="Confirm Password" value="password!">
+                    <input class="form-control" type="password" id="cpassword" name="cpassword" placeholder="Confirm Password" value="">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="profile1">Profile Pictures</label>
                 <div class="col-sm-4" data-toggle="tooltip" title="Choose Image">
                     <button type="button" class="profile_upload" id="profile1_upload" data-toggle="modal" data-target="#images_modal" data-backdrop="static" data-keyboard="false" title="Choose Image">
-                        <?php if($admin->getProfile1() === NULL){ ?>
-                            <i class="fa fa-4x fa-plus-circle"></i>
-                        <?php }else{ ?>
-                            <img class="img-responsive" src="<?php echo $admin->getProfile1(); ?>" alt="GP Worx">
-                        <?php }?>
+                        <i class="fa fa-4x fa-plus-circle"></i>
                     </button>
                     <input class="form-control" type="hidden" id="profile1" name="profile1" value="">
                 </div>
                 <div class="col-sm-4" data-toggle="tooltip" title="Choose Image">
                     <button type="button" class="profile_upload" id="profile2_upload"  data-toggle="modal" data-target="#images_modal" data-backdrop="static" data-keyboard="false" title="Choose Image">
-                        <?php if($admin->getProfile2() === NULL){ ?>
-                            <i class="fa fa-4x fa-plus-circle"></i>
-                        <?php }else{ ?>
-                            <img class="img-responsive" src="<?php echo $admin->getProfile2(); ?>" alt="GP Worx">
-                        <?php }?>
+                        <i class="fa fa-4x fa-plus-circle"></i>
                     </button>
                     <input class="form-control" type="hidden" id="profile2" name="profile2" value="">
                 </div>

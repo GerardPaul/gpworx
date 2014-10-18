@@ -27,14 +27,11 @@ class Admin extends CI_Controller {
     public function index() {
         $this->checkLogin();
         if ($this->login) {
-            $this->load->model('admin_model');
-            $admin = $this->admin_model->get_admin_details($this->userId);
             $data = array(
                 "title" => 'Manage Admin',
                 "description" => 'This site is a project of Gerard Paul Picardal Labitad.',
                 "fullname" => $this->fullname,
-                "id" => $this->userId,
-                "admin" => $admin
+                "id" => $this->userId
             );
             $this->load->gerard('admin', $data);
         } else {
@@ -46,7 +43,7 @@ class Admin extends CI_Controller {
         $this->checkLogin();
         if ($this->login) {
             $attachment_path = 'No File.';
-            $filename = 'gerardpaullabitad_gpplworx-' . $_FILES['new_file']['name'];
+            $filename = 'profile_gerardpaullabitad_gpplworx-' . $_FILES['new_file']['name'];
             $config = array(
                 'upload_path' => './application/mysite/assets/upload/',
                 'file_name' => $filename,
@@ -89,17 +86,26 @@ class Admin extends CI_Controller {
             $profile1 = $this->input->post('profile1');
             $profile2 = $this->input->post('profile2');
 
-            $salt = '';
-            if($password != 'password!'){
-                $salt1 = md5(uniqid(rand(), true));
-                $salt = substr($salt1, 0, 50);
-                $password = hash('sha256', $salt . $password);
-            }
-            
+            $salt1 = md5(uniqid(rand(), true));
+            $salt = substr($salt1, 0, 50);
+            $hashPassword = hash('sha256', $salt . $password);
+
             $this->load->model('admin_model');
-            $this->admin_model->update_admin($id, $fullname, $username, $password, $salt, $profile1, $profile2);
-                    
-            redirect('gerard/admin', 'refresh');
+            $data = array(
+                "title" => 'Manage Admin',
+                "description" => 'This site is a project of Gerard Paul Picardal Labitad.',
+                "fullname" => $this->fullname,
+                "id" => $this->userId
+            );
+            if ($this->admin_model->update_admin($id, $fullname, $username, $hashPassword, $salt, $profile1, $profile2)) {
+                $data['alert'] = 'alert alert-success';
+                $data['message'] = 'Successfully updated!';
+                $this->load->gerard('admin', $data);
+            } else {
+                $data['alert'] = 'alert alert-danger';
+                $data['message'] = 'There was an error updating!';
+                $this->load->gerard('admin', $data);
+            }
         } else {
             redirect('login', 'refresh');
         }
