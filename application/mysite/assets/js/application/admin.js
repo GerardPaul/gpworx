@@ -4,8 +4,10 @@ $(function() {
     $('.profile_upload').click(function() {
         getFiles();
     });
+    
+    var type = 'profile';
     function getFiles() {
-        $.post(base_url + "files/getFiles", function(data) {
+        $.post(base_url + "files/getFiles", {type: type}, function(data) {
             if (data.status === 'ok') {
                 $('.image_container').html(data.content);
             } else {

@@ -35,8 +35,8 @@ class File_Model extends CI_Model {
         $this->_date_added = $value;
     }
 
-    function get_files() {
-        $sql = "SELECT * FROM $this->_table_name ORDER BY date_added DESC";
+    function get_image_files($type) {
+        $sql = "SELECT * FROM $this->_table_name WHERE file_path LIKE '%$type-%' ORDER BY date_added DESC";
         $query = $this->db->query($sql);
         if ($query->num_rows() > 0) {
             $files = array();

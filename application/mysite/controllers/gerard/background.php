@@ -27,10 +27,20 @@ class Background extends CI_Controller {
     public function index() {
         $this->checkLogin();
         if ($this->login) {
+            $this->load->model('background_model');
+            $home = $this->background_model->get_home_bg();
+            $portfolio = $this->background_model->get_portfolio_bg();
+            $contact = $this->background_model->get_contact_bg();
+            $about = $this->background_model->get_about_bg();
+            
             $data = array(
                 "title" => 'Manage Background',
                 "description" => 'This site is a project of Gerard Paul Picardal Labitad.',
-                "fullname" => $this->fullname
+                "fullname" => $this->fullname,
+                "home" => $home,
+                "portfolio" => $portfolio,
+                "contact" => $contact,
+                "about" => $about
             );
             $this->load->gerard('background', $data);
         } else {
@@ -38,4 +48,45 @@ class Background extends CI_Controller {
         }
     }
 
+    public function upload() {
+        $this->checkLogin();
+        if ($this->login) {
+            $attachment_path = 'No File.';
+            $filename = 'bg-gerardpaullabitad_gpplworx_gpworx-' . $_FILES['new_file']['name'];
+            $config = array(
+                'upload_path' => './application/mysite/assets/upload/',
+                'file_name' => $filename,
+                'allowed_types' => 'gif|jpg|jpeg|png',
+                'max_size' => 2048,
+            );
+            $this->load->library('upload', $config);
+            $err = false;
+            if (!$this->upload->do_upload('new_file')) {
+                $error = $this->upload->display_errors();
+                echo $error;
+                $err = true;
+            } else {
+                $upload_data = $this->upload->data();
+                if (isset($upload_data['full_path'])) {
+                    $attachment_path = $upload_data['full_path'];
+                } else {
+                    $attachment_path = "No File.";
+                }
+            }
+            if ($err) {
+                echo "Upload failed!";
+            } else {
+                $attachment = strstr($attachment_path, 'application');
+                $path = base_url() . $attachment;
+                $this->load->model('file_model');
+                if ($this->file_model->add_file($path)) {
+                    echo "Upload successful!";
+                } else {
+                    echo "Upload failed!";
+                }
+            }
+        } else {
+            redirect('login', 'refresh');
+        }
+    }
 }

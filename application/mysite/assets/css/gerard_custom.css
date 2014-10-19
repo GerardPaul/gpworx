@@ -255,5 +255,52 @@ body {
     margin: 5px;
 }
 .image_container label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
-  border:2px solid #f00;
+    border:2px solid #f00;
+}
+.background {
+    margin: 0 auto;
+    padding: 0;
+    /*max-width: 300px;*/
+    heigth: auto;
+    position: relative;
+    background: transparent;
+    overflow: hidden;
+    -webkit-box-shadow: 2px 2px 3px rgba(7,7,7,0.4);
+    box-shadow: 2px 2px 3px rgba(7,7,7,0.4);
+}
+.background p{
+    margin: 15px;
+}
+.background img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+}
+.background.crop-top img {
+    margin: -10% auto 0;
+}
+.background.crop-bottom img {
+    margin: 0 auto -10%;
+}
+.background.crop-vertically img {
+    margin: -22% auto;
+}
+.background.crop-right img {
+    width: 140%;
+}
+.background.crop-left img {
+    width: 140%;
+    margin: 0 0 0 -40%;
+}
+.background.crop-horizontally img {
+    width: 180%;
+    margin: 0 -20%;
+}
+.background.crop-square img {
+    width: 259.5%; /* calculate based on your original image... img-width*100/img-height */
+    margin: 0 0 0 -79.75%; /* the above value minus 50 */
+}
+.margin_top{
+    margin-top: 25px;
 }

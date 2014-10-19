@@ -46,7 +46,7 @@ class Admin extends CI_Controller {
         $this->checkLogin();
         if ($this->login) {
             $attachment_path = 'No File.';
-            $filename = 'gerardpaullabitad_gpplworx_gpworx-' . $_FILES['new_file']['name'];
+            $filename = 'profile-gerardpaullabitad_gpplworx_gpworx-' . $_FILES['new_file']['name'];
             $config = array(
                 'upload_path' => './application/mysite/assets/upload/',
                 'file_name' => $filename,
@@ -54,10 +54,11 @@ class Admin extends CI_Controller {
                 'max_size' => 2048,
             );
             $this->load->library('upload', $config);
-
+            $err = false;
             if (!$this->upload->do_upload('new_file')) {
                 $error = $this->upload->display_errors();
                 echo $error;
+                $err = true;
             } else {
                 $upload_data = $this->upload->data();
                 if (isset($upload_data['full_path'])) {
@@ -66,13 +67,17 @@ class Admin extends CI_Controller {
                     $attachment_path = "No File.";
                 }
             }
-            $attachment = strstr($attachment_path, 'application');
-            $path = base_url() . $attachment;
-            $this->load->model('file_model');
-            if ($this->file_model->add_file($path)) {
-                echo "Upload successful!";
-            }else{
+            if ($err) {
                 echo "Upload failed!";
+            } else {
+                $attachment = strstr($attachment_path, 'application');
+                $path = base_url() . $attachment;
+                $this->load->model('file_model');
+                if ($this->file_model->add_file($path)) {
+                    echo "Upload successful!";
+                } else {
+                    echo "Upload failed!";
+                }
             }
         } else {
             redirect('login', 'refresh');
@@ -90,15 +95,15 @@ class Admin extends CI_Controller {
             $profile2 = $this->input->post('profile2');
 
             $salt = '';
-            if($password != 'password!'){
+            if ($password != 'password!') {
                 $salt1 = md5(uniqid(rand(), true));
                 $salt = substr($salt1, 0, 50);
                 $password = hash('sha256', $salt . $password);
             }
-            
+
             $this->load->model('admin_model');
             $this->admin_model->update_admin($id, $fullname, $username, $password, $salt, $profile1, $profile2);
-                    
+
             redirect('gerard/admin', 'refresh');
         } else {
             redirect('login', 'refresh');
