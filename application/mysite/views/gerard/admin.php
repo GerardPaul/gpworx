@@ -40,7 +40,7 @@
                         <?php if($admin->getProfile1() === NULL){ ?>
                             <i class="fa fa-4x fa-plus-circle"></i>
                         <?php }else{ ?>
-                            <img class="img-responsive" src="<?php echo $admin->getProfile1(); ?>" alt="GP Worx">
+                            <img class="img-responsive" src="<?php echo $admin->getProfile1(); ?>" alt="GP Worx | GPPL Worx">
                         <?php }?>
                     </button>
                     <input class="form-control" type="hidden" id="profile1" name="profile1" value="">
@@ -50,7 +50,7 @@
                         <?php if($admin->getProfile2() === NULL){ ?>
                             <i class="fa fa-4x fa-plus-circle"></i>
                         <?php }else{ ?>
-                            <img class="img-responsive" src="<?php echo $admin->getProfile2(); ?>" alt="GP Worx">
+                            <img class="img-responsive" src="<?php echo $admin->getProfile2(); ?>" alt="GP Worx | GPPL Worx">
                         <?php }?>
                     </button>
                     <input class="form-control" type="hidden" id="profile2" name="profile2" value="">

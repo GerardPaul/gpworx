@@ -46,7 +46,7 @@ class Admin extends CI_Controller {
         $this->checkLogin();
         if ($this->login) {
             $attachment_path = 'No File.';
-            $filename = 'gerardpaullabitad_gpplworx-' . $_FILES['new_file']['name'];
+            $filename = 'gerardpaullabitad_gpplworx_gpworx-' . $_FILES['new_file']['name'];
             $config = array(
                 'upload_path' => './application/mysite/assets/upload/',
                 'file_name' => $filename,

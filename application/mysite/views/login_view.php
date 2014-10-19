@@ -28,7 +28,11 @@
             <div class="login-box">
                 <div class="well">
                     <div class="login-user">
-                        <img src="<?php echo base_url("application/mysite/assets/img/gerardpaullabitad-user.png"); ?>" height="150px">
+                        <?php if($profile->getProfile1() === NULL){ ?>
+                            <img src="<?php echo base_url("application/mysite/assets/img/gerardpaullabitad_gpworx_gpplworx-user.jpg"); ?>" height="150px" class="img-circle" alt="GP Worx | GPPL Worx">
+                        <?php } else{ ?>
+                            <img height="150px" class="img-circle" src="<?php echo $profile->getProfile1(); ?>" alt="GP Worx | GPPL Worx">
+                        <?php }?>
                     </div>
                     <form class="form-signin" role="form" action="<?php echo base_url("login/auth"); ?>" method="post">
 

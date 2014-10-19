@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2014 at 07:36 AM
+-- Generation Time: Oct 19, 2014 at 05:58 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `gpworx_admin` (
 --
 
 INSERT INTO `gpworx_admin` (`id`, `fullname`, `profile_picture1`, `profile_picture2`, `username`, `password`, `salt`) VALUES
-(1, 'Gerard Paul Picardal Labitad', 0, 0, 'gerardpaul.labitad@outlook.com', 'd1b2d6cdb49e70db690e341a0ed18222e97e48d263f7aeb797081bcf724e12ae', '79e6515e18bd901904371ddc0fffabad');
+(1, 'Gerard Paul Picardal Labitad', 0, 0, 'gerardpaul.labitad@outlook.com', 'b8fd7ecc9254a6a5350302b5afd97af85fc5452dacdc5361ee09864e6d1b0944', 'a8d79d6c4cb3f4a36ceb153fdc690a43');
 
 -- --------------------------------------------------------
 
@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS `gpworx_category` (
 CREATE TABLE IF NOT EXISTS `gpworx_files` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `file_path` varchar(250) NOT NULL,
+  `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 

@@ -52,6 +52,19 @@ class Admin_Model extends CI_Model {
         return false;
     }
 
+    function get_admin_profile($id) {
+        $sql = "SELECT a.id,
+                    (SELECT f.file_path FROM gpworx_files f WHERE a.profile_picture1 = f.id) AS \"profile_picture1\",
+                    (SELECT f.file_path FROM gpworx_files f WHERE a.profile_picture2 = f.id) AS \"profile_picture2\"
+                FROM gpworx_admin a
+                WHERE a.id = ? ";
+        $query = $this->db->query($sql, array($id));
+        if ($query->num_rows() > 0) {
+            return $this->createObjectProfileFromData($query->row());
+        }
+        return false;
+    }
+    
     function get_admin_details($id) {
         $sql = "SELECT a.id, a.username, a.password, a.fullname, a.salt,
                     (SELECT f.file_path FROM gpworx_files f WHERE a.profile_picture1 = f.id) AS \"profile_picture1\",
@@ -113,6 +126,13 @@ class Admin_Model extends CI_Model {
         $this->_profile_picture1 = $row->profile_picture1;
         $this->_profile_picture2 = $row->profile_picture2;
         $this->_salt = $row->salt;
+
+        return $this;
+    }
+    
+    private function createObjectProfileFromData($row) {
+        $this->_profile_picture1 = $row->profile_picture1;
+        $this->_profile_picture2 = $row->profile_picture2;
 
         return $this;
     }
