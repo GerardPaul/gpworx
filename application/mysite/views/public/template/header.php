@@ -10,6 +10,7 @@
         <title>GP Worx | <?php echo $title; ?></title>
         <meta name="description" content="<?php echo $description; ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="p:domain_verify" content="e2e59a0fade40ccdc28803039f2a34d6"/>
         <!-- Favicon -->
         <link rel="shortcut icon" href="<?php echo base_url("application/mysite/assets/img/favicon.ico"); ?>" type="image/x-icon"/>
 
