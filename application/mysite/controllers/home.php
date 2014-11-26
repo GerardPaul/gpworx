@@ -12,7 +12,7 @@ class Home extends CI_Controller {
     public function index() {
         $data = array(
             "title" => 'Home',
-            "description" => 'This site is a project of Gerard Paul Picardal Labitad.'
+            "description" => 'This site is a project of Gerard Paul Picardal Labitad. GP Worx is '
         );
         $this->load->front('index', $data);
     }
