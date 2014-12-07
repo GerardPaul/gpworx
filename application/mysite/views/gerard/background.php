@@ -13,7 +13,7 @@
                     </div>
                     <div class="col-xs-6 margin_top">
                         <div class="pull-right">
-                            <button class="btn btn-primary btn-xs bg_upload" type="button" data-toggle="modal" data-target="#images_modal" data-backdrop="static" data-keyboard="false" title="Choose Image">
+                            <button id="bg_home_upload" class="btn btn-primary btn-xs bg_upload" type="button" data-toggle="modal" data-target="#images_modal" data-backdrop="static" data-keyboard="false" title="Choose Image">
                                 <i class="fa fa-refresh"></i> Change
                             </button>
                         </div>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-xs-6 margin_top">
                         <div class="pull-right">
-                            <button class="btn btn-primary btn-xs bg_upload" type="button" data-toggle="modal" data-target="#images_modal" data-backdrop="static" data-keyboard="false" title="Choose Image">
+                            <button id="bg_portfolio_upload" class="btn btn-primary btn-xs bg_upload" type="button" data-toggle="modal" data-target="#images_modal" data-backdrop="static" data-keyboard="false" title="Choose Image">
                                 <i class="fa fa-refresh"></i> Change
                             </button>
                         </div>
@@ -50,7 +50,7 @@
                     <?php if ($portfolio == FALSE) { ?>
                         <p>No background image yet.</p>
                     <?php } else { ?>
-                        <img src="<?php echo $home->getFileURL(); ?>" alt="GP Worx | GPPL Worx">
+                        <img src="<?php echo $portfolio->getFileURL(); ?>" alt="GP Worx | GPPL Worx">
                     <?php } ?>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                     </div>
                     <div class="col-xs-6 margin_top">
                         <div class="pull-right">
-                            <button class="btn btn-primary btn-xs bg_upload" type="button" data-toggle="modal" data-target="#images_modal" data-backdrop="static" data-keyboard="false" title="Choose Image">
+                            <button id="bg_about_upload" class="btn btn-primary btn-xs bg_upload" type="button" data-toggle="modal" data-target="#images_modal" data-backdrop="static" data-keyboard="false" title="Choose Image">
                                 <i class="fa fa-refresh"></i> Change
                             </button>
                         </div>
@@ -75,7 +75,7 @@
                     <?php if ($about == FALSE) { ?>
                         <p>No background image yet.</p>
                     <?php } else { ?>
-                        <img src="<?php echo $home->getFileURL(); ?>" alt="GP Worx | GPPL Worx">
+                        <img src="<?php echo $about->getFileURL(); ?>" alt="GP Worx | GPPL Worx">
                     <?php } ?>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="col-xs-6 margin_top">
                         <div class="pull-right">
-                            <button class="btn btn-primary btn-xs bg_upload" type="button" data-toggle="modal" data-target="#images_modal" data-backdrop="static" data-keyboard="false" title="Choose Image">
+                            <button id="bg_contact_upload" class="btn btn-primary btn-xs bg_upload" type="button" data-toggle="modal" data-target="#images_modal" data-backdrop="static" data-keyboard="false" title="Choose Image">
                                 <i class="fa fa-refresh"></i> Change
                             </button>
                         </div>
@@ -100,7 +100,7 @@
                     <?php if ($contact == FALSE) { ?>
                         <p>No background image yet.</p>
                     <?php } else { ?>
-                        <img src="<?php echo $home->getFileURL(); ?>" alt="GP Worx | GPPL Worx">
+                        <img src="<?php echo $contact->getFileURL(); ?>" alt="GP Worx | GPPL Worx">
                     <?php } ?>
                 </div>
             </div>
@@ -121,11 +121,11 @@
                     
                 </div>
                 <div class="upload_container">
-                    <form id="profile_form" method="post" class="form-horizontal" enctype="multipart/form-data" action="<?php echo base_url(); ?>gerard/admin/upload">
+                    <form id="background_form" method="post" class="form-horizontal" enctype="multipart/form-data" action="<?php echo base_url(); ?>gerard/background/upload">
                         <h4>Upload Image</h4>
                         <input type="file" name="new_file" id="new_file" title="Browse for file...">
                         <hr>
-                        <button class="btn btn-sm btn-primary" type="submit" id="upload_profile_image">
+                        <button class="btn btn-sm btn-primary" type="submit" id="upload_background_image">
                             <i class="fa fa-upload"></i> Upload
                         </button>
                         <span id="progress" style="display: none;">
@@ -139,8 +139,8 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-success" id="upload_new">Upload New</button>
-                <button type="button" class="btn btn-primary" id="select_profile">Select</button>
-                <input type="hidden" id="for_profile" value="">
+                <button type="button" class="btn btn-primary" id="select_background">Select</button>
+                <input type="hidden" id="for_background" value="">
             </div>
         </div>
     </div>

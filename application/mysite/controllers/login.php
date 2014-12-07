@@ -21,6 +21,9 @@ class Login extends CI_Controller {
     }
 
     public function auth() {
+        $this->load->model('admin_model');
+        $profile = $this->admin_model->get_admin_details(1);
+        
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
@@ -46,7 +49,8 @@ class Login extends CI_Controller {
                 $data = array(
                     "title" => 'Login',
                     "description" => 'This site is a project of Gerard Paul Picardal Labitad.',
-                    "message" => 'Invalid login credentials!'
+                    "message" => 'Invalid login credentials!',
+                    "profile" => $profile
                 );
                 $this->load->view('login_view', $data);
             }
@@ -54,7 +58,8 @@ class Login extends CI_Controller {
             $data = array(
                 "title" => 'Login',
                 "description" => 'This site is a project of Gerard Paul Picardal Labitad.',
-                "message" => 'Invalid login credentials!'
+                "message" => 'Invalid login credentials!',
+                "profile" => $profile
             );
             $this->load->view('login_view', $data);
         }
