@@ -32,7 +32,7 @@ class Background extends CI_Controller {
             $portfolio = $this->background_model->get_portfolio_bg();
             $contact = $this->background_model->get_contact_bg();
             $about = $this->background_model->get_about_bg();
-            
+
             $data = array(
                 "title" => 'Manage Background',
                 "description" => 'This site is a project of Gerard Paul Picardal Labitad.',
@@ -43,6 +43,27 @@ class Background extends CI_Controller {
                 "about" => $about
             );
             $this->load->gerard('background', $data);
+        } else {
+            redirect('login', 'refresh');
+        }
+    }
+
+    public function ajaxSetBGImage() {
+        $this->checkLogin();
+        if ($this->login) {
+            $id = $_POST['image_id'];
+            $for_bg = $_POST['for_bg'];
+
+            $this->load->model('background_model');
+            if ($this->background_model->set_bg($for_bg, $id)) {
+                $result = array('status' => 'ok');
+
+                echo json_encode($result);
+            } else {
+                $result = array('status' => 'failed');
+
+                echo json_encode($result);
+            }
         } else {
             redirect('login', 'refresh');
         }
@@ -89,4 +110,5 @@ class Background extends CI_Controller {
             redirect('login', 'refresh');
         }
     }
+
 }

@@ -20,7 +20,7 @@ class Background_Model extends CI_Model {
     function setId($value) {
         $this->_id = $value;
     }
-    
+
     function getFileURL() {
         return $this->_file_url;
     }
@@ -28,7 +28,7 @@ class Background_Model extends CI_Model {
     function setFileURL($value) {
         $this->_file_url = $value;
     }
-    
+
     function getType() {
         return $this->_type;
     }
@@ -36,7 +36,7 @@ class Background_Model extends CI_Model {
     function setType($value) {
         $this->_type = $value;
     }
-    
+
     function getOrder() {
         return $this->_order;
     }
@@ -44,7 +44,7 @@ class Background_Model extends CI_Model {
     function setOrder($value) {
         $this->_order = $value;
     }
-    
+
     function getStatus() {
         return $this->_status;
     }
@@ -52,23 +52,26 @@ class Background_Model extends CI_Model {
     function setStatus($value) {
         $this->_status = $value;
     }
-    
+
     function get_home_bg() {
         $sql = "SELECT b.id, b.type, b.order, b.status, f.file_path
                 FROM $this->_table_name b, gpworx_files f 
                 WHERE b.type = 'home' AND b.file_url = f.id AND b.status = 1
                 ORDER BY b.order ASC";
         $query = $this->db->query($sql);
+//        if ($query->num_rows() > 0) {
+//            $bgs = array();
+//            foreach ($query->result() as $row) {
+//                $bgs[] = $this->createObjectFromData($row);
+//            }
+//            return $bgs;
+//        }
         if ($query->num_rows() > 0) {
-            $bgs = array();
-            foreach ($query->result() as $row) {
-                $bgs[] = $this->createObjectFromData($row);
-            }
-            return $bgs;
+            return $this->createObjectFromData($query->row());
         }
         return false;
     }
-    
+
     function get_portfolio_bg() {
         $sql = "SELECT b.id, b.type, b.order, b.status, f.file_path
                 FROM $this->_table_name b, gpworx_files f 
@@ -80,7 +83,7 @@ class Background_Model extends CI_Model {
         }
         return false;
     }
-    
+
     function get_contact_bg() {
         $sql = "SELECT b.id, b.type, b.order, b.status, f.file_path
                 FROM $this->_table_name b, gpworx_files f 
@@ -92,7 +95,7 @@ class Background_Model extends CI_Model {
         }
         return false;
     }
-    
+
     function get_about_bg() {
         $sql = "SELECT b.id, b.type, b.order, b.status, f.file_path
                 FROM $this->_table_name b, gpworx_files f 
@@ -103,6 +106,19 @@ class Background_Model extends CI_Model {
             return $this->createObjectFromData($query->row());
         }
         return false;
+    }
+
+    function set_bg($type, $image_id) {
+        $data = array(
+            'file_url' => $image_id,
+            'type' => $type,
+            'order' => 1
+        );
+        if ($this->db->insert($this->_table_name, $data)) {
+            return true;
+        }else{
+            return false;
+        }
     }
 
     private function createObjectFromData($row) {
