@@ -40,10 +40,10 @@ class Login extends CI_Controller {
 
             if ($username == $adminUsername && $hashPassword == $adminPassword) {
                 $sess_array = array(
-                    'id' => $adminId,
-                    'fullname' => $adminFullname
+                    'gpworx_id' => $adminId,
+                    'gpworx_fullname' => $adminFullname
                 );
-                $this->session->set_userdata('logged_in', $sess_array);
+                $this->session->set_userdata('gpworx_logged_in', $sess_array);
                 redirect('gerard/home', 'refresh');
             } else {
                 $data = array(

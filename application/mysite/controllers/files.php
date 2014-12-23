@@ -12,7 +12,7 @@ class Files extends CI_Controller {
     }
 
     private function checkLogin() {
-        if ($this->session->userdata('logged_in')) {
+        if ($this->session->userdata('gpworx_logged_in')) {
             $this->login = TRUE;
         } else {
             $this->login = FALSE;

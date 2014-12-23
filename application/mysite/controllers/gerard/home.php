@@ -15,11 +15,11 @@ class Home extends CI_Controller {
     }
 
     private function checkLogin() {
-        if ($this->session->userdata('logged_in')) {
+        if ($this->session->userdata('gpworx_logged_in')) {
             $this->login = TRUE;
-            $session_data = $this->session->userdata('logged_in');
-            $this->userId = $session_data['id'];
-            $this->fullname = $session_data['fullname'];
+            $session_data = $this->session->userdata('gpworx_logged_in');
+            $this->userId = $session_data['gpworx_id'];
+            $this->fullname = $session_data['gpworx_fullname'];
         } else {
             $this->login = FALSE;
         }
@@ -40,7 +40,7 @@ class Home extends CI_Controller {
     }
     
     public function logout() {
-        $this->session->unset_userdata('logged_in');
+        $this->session->unset_userdata('gpworx_logged_in');
         session_destroy();
         redirect('login', 'refresh');
     }
