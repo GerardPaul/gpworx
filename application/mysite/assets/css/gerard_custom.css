@@ -304,3 +304,37 @@ body {
 .margin_top{
     margin-top: 25px;
 }
+
+.panel-gp {
+    border-color: #12657C;
+    border-radius: 0px !important;
+}
+.panel-gp > .panel-heading > a {
+    color: #fff;
+}
+.panel-gp > .panel-heading > a:hover {
+    color: #999;
+}
+.panel-gp > .panel-heading {
+    color: #fff;
+    background-color: #12657C;
+    border-color: #12657C;
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}
+.panel-gp > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #12657C;
+}
+.panel-gp > .panel-heading .badge {
+    color: #12657C;
+    background-color: #EEEEEE;
+}
+.panel-gp > .panel-footer + .panel-collapse > .panel-body {
+    border-bottom-color: #12657C;
+}
+
+.panel-gp > .panel-body {
+    background: #EEEEEE;
+}
