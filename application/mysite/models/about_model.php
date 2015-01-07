@@ -52,7 +52,31 @@ class About_Model extends CI_Model {
     function setType($value) {
         $this->_type = $value;
     }
-
+    
+    function get_1_info($id) {
+        $sql = "SELECT *
+                FROM $this->_table_name
+                WHERE id = $id";
+        $query = $this->db->query($sql);
+        
+        if ($query->num_rows() > 0) {
+            return $this->createObjectFromData($query->row());
+        }
+        return false;
+    }
+    
+    function get_1_contact($id) {
+        $sql = "SELECT *
+                FROM $this->_table_name
+                WHERE id = $id";
+        $query = $this->db->query($sql);
+        
+        if ($query->num_rows() > 0) {
+            return $this->createObjectFromData($query->row());
+        }
+        return false;
+    }
+    
     function get_info() {
         $sql = "SELECT a.id, a.label, a.value, a.order, a.type
                 FROM $this->_table_name a
@@ -101,7 +125,7 @@ class About_Model extends CI_Model {
         }
     }
     
-    private function get_last_order($type){
+    public function get_last_order($type){
         $sql = "SELECT a.order FROM $this->_table_name a WHERE a.type = '$type' ORDER BY a.order DESC LIMIT 1";
         $query = $this->db->query($sql);
         if ($query->num_rows() > 0) {

@@ -19,7 +19,7 @@
                             if(is_array($info)){
                                 for($i = 0; $i < count($info); $i++){
                                     echo $info[$i]->getLabel() . ": <b>" . $info[$i]->getValue() . "</b> "
-                                            . "<a href='#info_edit_modal' data-toggle='modal' data-target='#info_edit_modal' data-backdrop='static' data-keyboard='false'><i class='fa fa-edit'></i></a><br>";
+                                            . "<a href='#info_edit_modal' data-toggle='modal' data-target='#info_edit_modal' data-backdrop='static' data-keyboard='false' onclick='getInfoToEdit(".$info[$i]->getId().")'><i class='fa fa-edit'></i></a><br>";
                                 }
                             }else{
                                 echo "No info to display.";
@@ -41,7 +41,7 @@
                             if(is_array($contact)){
                                 for($i = 0; $i < count($contact); $i++){
                                     echo $contact[$i]->getLabel() . ": <b>" . $contact[$i]->getValue() . "</b> "
-                                            . "<a href='#contact_edit_modal' data-toggle='modal' data-target='#contact_edit_modal' data-backdrop='static' data-keyboard='false'><i class='fa fa-edit'></i></a><br>";
+                                            . "<a href='#contact_edit_modal' data-toggle='modal' data-target='#contact_edit_modal' data-backdrop='static' data-keyboard='false' onclick='getContactToEdit(".$contact[$i]->getId().")'><i class='fa fa-edit'></i></a><br>";
                                 }
                             }else{
                                 echo "No contact to display.";
@@ -142,6 +142,30 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-primary" >Add</button>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="info_edit_modal" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Update Info</h4>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="contact_edit_modal" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Update Info</h4>
+            </div>
+            
         </div>
     </div>
 </div>
