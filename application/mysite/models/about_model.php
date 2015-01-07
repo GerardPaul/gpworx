@@ -52,38 +52,59 @@ class About_Model extends CI_Model {
     function setType($value) {
         $this->_type = $value;
     }
-    
+
+    function update_about($id, $label, $value, $order_new, $order_old, $type) {
+        if ($order_new != $order_old) {
+            $sql = "UPDATE $this->_table_name a SET a.order = $order_old WHERE a.type = '$type' AND a.order = $order_new";
+            if ($this->db->query($sql)) {
+                $update_sql = "UPDATE $this->_table_name a SET a.label = '$label', a.value = '$value', a.order = '$order_new' WHERE a.id = $id";
+                if ($this->db->query($update_sql)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } else {
+            $update_sql = "UPDATE $this->_table_name a SET a.label = '$label', a.value = '$value' WHERE a.id = $id";
+            if ($this->db->query($update_sql)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
     function get_1_info($id) {
         $sql = "SELECT *
                 FROM $this->_table_name
                 WHERE id = $id";
         $query = $this->db->query($sql);
-        
+
         if ($query->num_rows() > 0) {
             return $this->createObjectFromData($query->row());
         }
         return false;
     }
-    
+
     function get_1_contact($id) {
         $sql = "SELECT *
                 FROM $this->_table_name
                 WHERE id = $id";
         $query = $this->db->query($sql);
-        
+
         if ($query->num_rows() > 0) {
             return $this->createObjectFromData($query->row());
         }
         return false;
     }
-    
+
     function get_info() {
         $sql = "SELECT a.id, a.label, a.value, a.order, a.type
                 FROM $this->_table_name a
                 WHERE a.type = 'info'
                 ORDER BY a.order ASC";
         $query = $this->db->query($sql);
-        
+
         if ($query->num_rows() > 0) {
             $info = array();
             foreach ($query->result() as $row) {
@@ -115,7 +136,7 @@ class About_Model extends CI_Model {
         $data = array(
             'label' => $label,
             'value' => $value,
-            'order' =>$order,
+            'order' => $order,
             'type' => $type
         );
         if ($this->db->insert($this->_table_name, $data)) {
@@ -124,8 +145,8 @@ class About_Model extends CI_Model {
             return false;
         }
     }
-    
-    public function get_last_order($type){
+
+    public function get_last_order($type) {
         $sql = "SELECT a.order FROM $this->_table_name a WHERE a.type = '$type' ORDER BY a.order DESC LIMIT 1";
         $query = $this->db->query($sql);
         if ($query->num_rows() > 0) {

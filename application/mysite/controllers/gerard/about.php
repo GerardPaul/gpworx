@@ -94,6 +94,46 @@ class About extends CI_Controller {
         }
     }
     
+    public function updateContact(){
+        $this->checkLogin();
+        if ($this->login) {
+            $contact_id = $this->cleanString($_POST['contact_edit_id']);
+            $contact_label = $this->cleanString($_POST['contact_edit_label']);
+            $contact_value = $this->cleanString($_POST['contact_edit_value']);
+            $contact_order = $this->cleanString($_POST['contact_edit_order']);
+            $contact_order_original = $this->cleanString($_POST['contact_order_original']);
+            
+            $this->load->model('about_model');
+            if($this->about_model->update_about($contact_id, $contact_label, $contact_value, $contact_order, $contact_order_original, 'contact')){
+                redirect('gerard/about', 'refresh');
+            }else{
+                echo "Failed";
+            }
+        } else {
+            redirect('login', 'refresh');
+        }
+    }
+    
+    public function updateInfo(){
+        $this->checkLogin();
+        if ($this->login) {
+            $info_id = $this->cleanString($_POST['info_edit_id']);
+            $info_label = $this->cleanString($_POST['info_edit_label']);
+            $info_value = $this->cleanString($_POST['info_edit_value']);
+            $info_order = $this->cleanString($_POST['info_edit_order']);
+            $info_order_original = $this->cleanString($_POST['info_order_original']);
+            
+            $this->load->model('about_model');
+            if($this->about_model->update_about($info_id, $info_label, $info_value, $info_order, $info_order_original, 'info')){
+                redirect('gerard/about', 'refresh');
+            }else{
+                echo "Failed";
+            }
+        } else {
+            redirect('login', 'refresh');
+        }
+    }
+    
     public function getContact(){
         $this->checkLogin();
         if ($this->login) {
@@ -148,9 +188,10 @@ class About extends CI_Controller {
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <input type="hidden" name="info_edit_id" id="contact_edit_id" value="'.$id.'">
+                                    <input type="hidden" name="contact_edit_id" id="contact_edit_id" value="'.$id.'">
+                                    <input type="hidden" name="contact_order_original" id="contact_order_original" value="'.$contact_order.'">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-primary" >Add</button>
+                                    <button type="submit" class="btn btn-success" >Update</button>
                                 </div>
                             </form>';
                 
@@ -219,8 +260,9 @@ class About extends CI_Controller {
                                 </div>
                                 <div class="modal-footer">
                                     <input type="hidden" name="info_edit_id" id="info_edit_id" value="'.$id.'">
+                                    <input type="hidden" name="info_order_original" id="info_order_original" value="'.$info_order.'">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-primary" >Add</button>
+                                    <button type="submit" class="btn btn-success" >Update</button>
                                 </div>
                             </form>';
                 
