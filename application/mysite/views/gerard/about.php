@@ -136,12 +136,26 @@
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title">Add Skill</h4>
             </div>
-            <div class="modal-body">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" >Add</button>
-            </div>
+            <form id="contact_add_form" method="post" class="form-horizontal" action="<?php echo base_url(); ?>gerard/about/addSkill">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="skill_name" class="col-sm-2 control-label">Skill Name</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" id="skill_name" name="skill_name" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="skill_image" class="col-sm-2 control-label">Image URL</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" id="skill_image" name="skill_image" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" >Add</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

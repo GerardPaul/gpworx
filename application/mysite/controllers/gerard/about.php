@@ -94,6 +94,24 @@ class About extends CI_Controller {
         }
     }
     
+    public function addSkill() {
+        $this->checkLogin();
+        if ($this->login) {
+            $skill_name = $this->cleanString($_POST['skill_name']);
+            $skill_image = $this->cleanString($_POST['skill_image']);
+
+            $this->load->model('skill_model');
+            if ($this->skill_model->set_skill($skill_name, $skill_image)) {
+                redirect('gerard/about', 'refresh');
+            }else{
+                echo 'Failed';
+            }
+        } else {
+            redirect('login', 'refresh');
+        }
+    }
+    
+    
     public function updateContact(){
         $this->checkLogin();
         if ($this->login) {

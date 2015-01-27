@@ -59,7 +59,9 @@ class Skill_Model extends CI_Model {
         return false;
     }
 
-    function set_about($skill, $image, $order) {
+    function set_skill($skill, $image) {
+        $order = (int) $this->get_last_order() + 1;
+        
         $data = array(
             'skill_name' => $skill,
             'image' => $image,
@@ -82,4 +84,13 @@ class Skill_Model extends CI_Model {
         return $bg;
     }
 
+    public function get_last_order() {
+        $sql = "SELECT a.order FROM $this->_table_name a ORDER BY a.order DESC LIMIT 1";
+        $query = $this->db->query($sql);
+        if ($query->num_rows() > 0) {
+            return $query->row('order');
+        }
+        return false;
+    }
+    
 }
